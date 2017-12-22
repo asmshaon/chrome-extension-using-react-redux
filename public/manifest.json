@@ -1,0 +1,10 @@
+{
+    "short_name": "Carhire App",
+    "name": "Carhire - Free to Book, Cancel, Modify",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_title": "Carhire App"
+    },
+    "version": "1.0"
+}

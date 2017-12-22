@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.vvv-layout {
+    background-color: red;
+}
+
+.commentText {
+    margin: 10px;
+    border: 1px red solid;
+    width: auto;
+}
