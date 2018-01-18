@@ -1,24 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {selectUser} from "../actions/user";
+import PropTypes from 'prop-types';
+import {fetchUsers} from '../actions/actions'
 
-class UserList extends React.Component {
+class UserList extends Component {
 
-    createUserItems() {
-        return this.props.users.map((user) => {
-            return <li onClick={() => this.props.selectUser(user)} key={user.id}>{user.name}</li>
-        })
+    componentDidMount() {
+        this.props.fetchUsers();
     }
 
     render() {
         return (
-            <ul>
-                {this.createUserItems()}
-            </ul>
+            <div>
+                {
+                    this.props.users.map((user, key) => {
+                        return <div key={key}>{user.firstName}</div>
+                    })
+                }
+            </div>
         )
     }
 }
+
+UserList.propTypes = {
+    users: PropTypes.array.isRequired,
+    fetchUsers: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
     return {
@@ -26,13 +33,4 @@ function mapStateToProps(state) {
     }
 }
 
-function matchDispatchToProps(dispatch) {
-    return bindActionCreators(
-        {
-            selectUser: selectUser
-        },
-        dispatch
-    );
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(UserList);
+export default connect(mapStateToProps, {fetchUsers})(UserList);

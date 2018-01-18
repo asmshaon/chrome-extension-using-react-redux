@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Route} from 'react-router-dom';
-import GamesPage from './GamesPage'
+import UsersPage from './UsersPage'
 
 class App extends Component {
     render() {
@@ -11,10 +11,10 @@ class App extends Component {
                 </div>
 
                 <p>
-                    <Link to="games">Games</Link>
+                    <Link to="users">Users</Link>
                 </p>
 
-                <Route path="/games" component={GamesPage} />
+                <Route path="/users" component={UsersPage} />
             </div>
         );
     }
